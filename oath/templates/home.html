@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<main>
+    <div class="container">
+        {% if user.is_authenticated %}
+        <h1>List children</h1>
+        {% for child in listChildren %}
+        <ul>
+            <li>{{ child }}</li>
+        </ul>
+        {% endfor %}
+
+    {% else %}
+        <h2>You are guest, please login</h2>
+        
+        
+    {% endif %}
+    </div>
+</main>
+
+{% endblock content %}
