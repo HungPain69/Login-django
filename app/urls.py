@@ -1,8 +1,8 @@
 from django.urls import path,include
-from .views import viewListChildren
+from .views import ListViewItem
 
 urlpatterns = [
-    path('',viewListChildren.as_view(), name ='home'),
+    path('', ListViewItem.as_view(), name ='home'),
     
 
 ]

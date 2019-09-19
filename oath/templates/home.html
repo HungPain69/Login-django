@@ -5,12 +5,23 @@
 <main>
     <div class="container">
         {% if user.is_authenticated %}
-        <h1>List children</h1>
-        {% for child in listChildren %}
-        <ul>
-            <li>{{ child }}</li>
-        </ul>
-        {% endfor %}
+
+
+        <section class="text-center mb-4">
+
+        <div class="row wow fadeIn">
+
+          {% for item in list_item %}
+          
+             
+              
+              <img src="{{ item.image.url }}" class="card-img-top">{{item.image.url}}
+             
+             
+          {% endfor %}
+        </div>
+
+      </section>
 
     {% else %}
         <h2>You are guest, please login</h2>
