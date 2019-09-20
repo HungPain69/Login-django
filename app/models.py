@@ -1,8 +1,18 @@
 from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
-CATEGORY_CHOICE = (
 
+
+CATEGORY_CHOICE = (
+    ('Clo', 'Clock'),
+    ('Cabi','Cabinet')
+)
+
+LABEL_CHOICES = (
+    ('N', 'New'),
+    ('H', 'Hot'),
+    ('D', 'Discount'),
+    ('De','Default')
 )
 
 
@@ -21,6 +31,7 @@ class Item(models.Model):
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
     category = models.CharField(choices=CATEGORY_CHOICE, max_length=5)
+    label = models.CharField(choices=LABEL_CHOICES, max_length=2)
     slug= models.SlugField()
     image= models.ImageField(null = True, blank = True,
                             upload_to = "images/")

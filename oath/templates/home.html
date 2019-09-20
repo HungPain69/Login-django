@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block content %}
 <main>
@@ -17,18 +17,51 @@
 
             <div class="card">
 
+              <!--Card image-->
               <div class="view overlay">
                 <a href="{{ item.get_absolute_url }}">
-                <img src="{{ item.image.url }}" class="card-img-top">
-                
+                  <img src="{{ item.image.url }}" class="card-img-top">
+                  <div class="mask rgba-white-slight"></div>
                   {% comment %}<div class="mask rgba-white-slight"></div>{% endcomment %}
                 </a>
               </div>
+              <!--Card image-->
+
+               <!--Card content-->
+              <div class="card-body text-center">
+                  <!--Category & Title-->
+                  <a href="" class="grey-text">
+                    <h5>{{ item.get_category_display }}</h5>
+                  </a>
+                  <h5>
+                      <strong>
+                        <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{item.title}}
+                          {% if item.get_label_display != 'Default'%}
+                          <span class="badge badge-pill danger-color"> {{ item.get_label_display }}</span>
+                          {% endif %}
+                        </a>
+                      </strong>
+                  </h5>
+
+                <h4 class="font-weight-bold blue-text">
+                  <strong>$
+                  {% if item.discount_price %}
+                  {{ item.discount_price }}
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+                  </strong>
+                </h4>
+
+              </div>
+               <!--Card content-->
+
+
             </div>
           </div>
           {% endfor %}
-        </div>
-      </section>
+          </div>
+        </section>
       <!--Section: Products v.3-->
 
 
@@ -52,9 +85,9 @@
           
           
           <li class="page-item active">
-            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+            <div class="page-link" ">{{ page_obj.number }}
               <span class="sr-only">(current)</span>
-            </a>
+            </div>
           </li>
           
 

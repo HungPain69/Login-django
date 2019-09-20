@@ -8,6 +8,7 @@ class ItemAdmin(admin.ModelAdmin):
                     'price',
                     'discount_price',
                     'category',
+                    'label',
                     'slug',
                     'image_tag'
                     )
