@@ -4,8 +4,8 @@ from django.shortcuts import reverse
 
 
 CATEGORY_CHOICE = (
-    ('Clo', 'Clock'),
-    ('Cabi','Cabinet')
+    ('Clock', 'Clock'),
+    ('Cabinet', 'Cabinet')
 )
 
 LABEL_CHOICES = (
@@ -30,7 +30,7 @@ class Item(models.Model):
     description = models.TextField()
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
-    category = models.CharField(choices=CATEGORY_CHOICE, max_length=5)
+    category = models.CharField(choices=CATEGORY_CHOICE, max_length=20)
     label = models.CharField(choices=LABEL_CHOICES, max_length=2)
     slug= models.SlugField()
     image= models.ImageField(null = True, blank = True,
